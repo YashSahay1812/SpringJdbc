@@ -3,6 +3,8 @@ package com.yash.dao;
 import com.yash.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class StudentDaoImpl implements StudentDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -49,6 +51,20 @@ public class StudentDaoImpl implements StudentDao {
                 resultSet.getString(3)
             ),
             id
+        );
+    }
+
+    @Override
+    public List<Student> getStudentsByCity(final String city) {
+        final String selectQuery = "SELECT * FROM student WHERE city=?";
+        return jdbcTemplate.query(
+            selectQuery,
+            (resultSet, _rowNum) -> new Student(
+                resultSet.getInt(1),
+                resultSet.getString(2),
+                resultSet.getString(3)
+            ),
+            city
         );
     }
 
