@@ -20,9 +20,13 @@ public class App
         recordsUpdated = studentDao.insert(student);
         System.out.println(recordsUpdated + " record(s) inserted!");
 
+        System.out.println(studentDao.getStudentById(1));
+
         student.setCity("Hyderabad");
         recordsUpdated = studentDao.updateById(1, student);
         System.out.println(recordsUpdated + " record(s) updated!");
+
+        System.out.println(studentDao.getStudentById(1));
 
         recordsUpdated = studentDao.deleteById(1);
         System.out.println(recordsUpdated + " record(s) deleted!");

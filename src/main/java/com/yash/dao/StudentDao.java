@@ -6,4 +6,5 @@ public interface StudentDao {
     int insert(Student student);
     int updateById(int id, Student student);
     int deleteById(int id);
+    Student getStudentById(int id);
 }
