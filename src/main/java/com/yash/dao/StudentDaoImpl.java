@@ -1,14 +1,18 @@
 package com.yash.dao;
 
 import com.yash.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class StudentDaoImpl implements StudentDao {
 
     private final JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public StudentDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

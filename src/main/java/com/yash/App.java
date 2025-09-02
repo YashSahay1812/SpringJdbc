@@ -3,7 +3,7 @@ package com.yash;
 import com.yash.dao.StudentDao;
 import com.yash.model.Student;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
@@ -11,8 +11,7 @@ public class App
 {
     public static void main( String[] args ) {
 
-        final ApplicationContext context = new ClassPathXmlApplicationContext(
-                "config.xml");
+        final ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
 
         final StudentDao studentDao = context.getBean("studentDaoImpl", StudentDao.class);
 
