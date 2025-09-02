@@ -43,7 +43,11 @@ public class StudentDaoImpl implements StudentDao {
         final String selectQuery = "SELECT * FROM student WHERE id=?";
         return jdbcTemplate.queryForObject(
             selectQuery,
-            new StudentRowMapper(),
+            (resultSet, _rowNum) -> new Student(
+                resultSet.getInt(1),
+                resultSet.getString(2),
+                resultSet.getString(3)
+            ),
             id
         );
     }
